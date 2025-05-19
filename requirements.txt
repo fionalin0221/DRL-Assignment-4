@@ -9,3 +9,4 @@ numpy==2.2.5
 
 torch
 torchvision
+matplotlib
