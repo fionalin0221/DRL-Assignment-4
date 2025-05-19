@@ -12,10 +12,10 @@ class Agent(object):
     def __init__(self):
         self.action_space = gym.spaces.Box(-1.0, 1.0, (21,), np.float64)
 
-        self.actor = Actor(obs_dim=67, act_dim=21, act_limit=1.0).to(device)
+        self.actor = Actor(obs_dim=67, act_dim=21, act_limit=1.0)
         # self.critic = Critic(obs_dim=67, act_dim=21).to(device)
         
-        self.actor.load_state_dict(torch.load("SAC_actor_10.pth"))
+        self.actor.load_state_dict(torch.load("SAC_actor_10.pth", map_location=torch.device('cpu')))
         self.actor.eval()
         # self.critic.load_state_dict(torch.load("SAC_critic_copy.pth"))
 
