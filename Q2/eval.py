@@ -2,6 +2,7 @@ import argparse
 import importlib
 import numpy as np
 from tqdm import tqdm
+import matplotlib.pyplot as plt
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -78,6 +79,15 @@ def eval_score():
             # Step the environment
             observation, reward, terminated, truncated, info = env.step(action)
             
+            # Optionally render the environment here
+            # frame = env.render()  # This will return the rendered image (RGB array)
+            
+            # # Display the frame using matplotlib
+            # plt.imshow(frame)
+            # plt.axis('off')  # Turn off axis for clean display
+            # plt.show(block=False)
+            # plt.pause(0.001)  # Pause briefly to allow for rendering
+
             episode_reward += reward
             done = terminated or truncated
             step += 1
